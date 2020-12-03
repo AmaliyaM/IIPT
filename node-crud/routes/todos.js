@@ -6,7 +6,7 @@ var Todo = require('../models/Todo.js');
 
 router.get('/', todo.list);
 router.post('/', todo.save);
-// router.put('/:id', todo.switch);
+router.put('/:id', todo.switch);
 router.delete('/:id', todo.delete);
 
 module.exports = router;

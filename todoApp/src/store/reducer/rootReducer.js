@@ -18,34 +18,46 @@ export default function usersReducer(state = initialState, action) {
         loading: false,
       };
     }
-    case 'LOGIN_USER_SUCCESS': {
+    case 'CREATE_TODO': {
+      return {
+         ...state,
+         loading: true,
+       }
+     } 
+    case 'CREATE_TODO_SUCCESS': {
       return {
         ...state,
-        isLogin: true,
+        todos: [...state.todos, action.data],
+        loading: false,
       };
     }
-    case 'LOGOUT_USER': {
+    case 'DELETE_TODO': {
+      return {
+         ...state,
+         loading: true,
+       }
+     } 
+    case 'DELETE_TODO_SUCCESS': {
       return {
         ...state,
-        isLogin: false,
+        todos: state.todos.filter(item => item._id !== action.data),
+        loading: false,
       };
     }
-    case 'CHECK_TOKEN': {
+    case 'CHECK_TODO': {
+      return {
+         ...state,
+         loading: true,
+       }
+     } 
+    case 'CHECK_TODO_SUCCESS': {
       return {
         ...state,
-        isLogin: true,
-      };
-    }
-    case 'START_LOGIN_USER': {
-      return {
-        ...state,
-        users: action.data,
-      };
-    }
-    case 'UPDATE_USER': {
-      return {
-        ...state,
-        users: action.data,
+        todos: state.todos.map(item => {
+          if (item._id == action.data) item.checked = !item.checked
+          return item
+        }),
+        loading: false,
       };
     }
     default:

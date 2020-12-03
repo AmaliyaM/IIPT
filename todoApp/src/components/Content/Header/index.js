@@ -10,26 +10,6 @@ class Header extends React.Component {
     pageState: 0,// 0 - Articles, 1 - Todo, 2 - Shopping_list
   }
 
-  
-
-  // listTodo = () => {
-  //   console.log("1111111111111")
-  //   this.setState({
-  //   pageState: 1 })
-  // }
-
-  // listShopping_list = () => {
-  //   console.log("2222222222222")
-  //   this.setState({
-  //   pageState: 2 })
-  // }
-
-  // listArticles = () => {
-  //   console.log("000000000000")
-  //   this.setState({
-  //   pageState: 0 })
-  // }
-
   render() { 
     const { setCurrentPage } = this.props
     return (

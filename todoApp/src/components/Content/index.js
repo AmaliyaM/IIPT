@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import TodoList from './TodoList'
+
 import './index.css';
 
 
@@ -9,50 +11,23 @@ export default class Content extends Component {
   
     switch (currentPage) {
       case 0:
-        return (
-          <div className="content">
-            <div className="leftPanel">
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider round"></span>
-              </label>
-            </div>
-            <div className="inside">
-              статьи
-                </div>
-          </div>
-        )
-        break
+        return <TodoList filterOption='todo'/>
       case 1:
-        return (
-          <div className="content">
-            <div className="leftPanel">
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider round"></span>
-              </label>
-            </div>
-            <div className="inside">
-              список дел
-          </div>
-          </div>
-        )
-        break
+        return  <TodoList filterOption='tobuy'/>
       case 2:
         return (
           <div className="content">
-            <div className="leftPanel">
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider round"></span>
-              </label>
-            </div>
-            <div className="inside">
-              список покупок
-            </div>
+          <div className="leftPanel">
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
           </div>
+          <div className="inside">
+            статьи
+              </div>
+        </div>
         )
-        break
       default:
         break
     }

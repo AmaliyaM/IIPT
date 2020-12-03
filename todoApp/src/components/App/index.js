@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 
 import Header from '../Content/Header';
 import Content from '../Content';
-import { startFetchTodos, startCreateTodo } from '../../store/actionCreators/todoActions'
+import { startFetchTodos } from '../../store/actionCreators/todoActions'
 
 import './index.css';
 
@@ -14,15 +14,13 @@ function App() {
   const dispatch = useDispatch()
 
   React.useEffect(() => {
-    console.log('componentDidMount')
-    dispatch(startFetchTodos('123321'))
-  }, [])  
+    dispatch(startFetchTodos())
+  }, [])
 
   return (
     <div className="App">
-      <button onClick={()=> dispatch(startCreateTodo('make a coffee'))}>Click</button>
-     <Header setCurrentPage={setCurrentPage}/>
-     <Content currentPage={currentPage}/>
+      <Header setCurrentPage={setCurrentPage}/>
+      <Content currentPage={currentPage}/>
     </div>
   );
 }
