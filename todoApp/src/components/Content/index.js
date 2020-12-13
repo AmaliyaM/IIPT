@@ -24,8 +24,8 @@ export default class Content extends Component {
             </label>
           </div>
           <div className="inside">
-            статьи
-              </div>
+            Статьи
+          </div>
         </div>
         )
       default:

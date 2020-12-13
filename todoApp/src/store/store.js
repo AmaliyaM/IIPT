@@ -7,11 +7,6 @@ import rootSaga from './saga/root';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const composedEnhancers = compose(
-  applyMiddleware(sagaMiddleware),
-  composeWithDevTools(),
-);
-
 const store = createStore(
   rootReducer,
   compose(

@@ -3,6 +3,7 @@ var mongoose = require("mongoose");
 var Todo = require('../models/Todo.js');
 
 var todoController = {};
+
 todoController.list = function(req, res) {
   Todo.find(function (err, todos) {
     if (err) {
@@ -10,7 +11,7 @@ todoController.list = function(req, res) {
       return next(err);
     }
     else {
-      res.json(todos);
+      res.json(todos.filter(item => item.created_by === req.params.created_by));
     }
   });
 };

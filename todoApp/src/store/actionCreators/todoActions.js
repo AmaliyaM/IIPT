@@ -1,5 +1,5 @@
-export function startFetchTodos() {
-  return { type: 'FETCH_TODOS' };
+export function startFetchTodos(data) {
+  return { type: 'FETCH_TODOS', data };
 }
 
 export function fetchTodosSuccess(data) {
@@ -28,4 +28,12 @@ export function startCheckTodo(data) {
 
 export function checkTodoSuccess(data) {
   return { type: 'CHECK_TODO_SUCCESS', data };
+}
+
+export function userSignIn(data) {
+  return {type: 'USER_SIGN_IN', data  }
+}
+
+export function userLogOut() {
+  return {type: 'USER_LOG_OUT' }
 }

@@ -8,10 +8,14 @@ import {
   checkTodoSuccess,
 } from '../actionCreators/todoActions';
 
-export function* fetchTodos() {
+export function* fetchTodos(payload) {
   try {
-    const res = yield call(axios, { url: 'http://localhost:3000/todos' });
-    yield put(fetchTodosSuccess(res.data));
+    console.log('payload.data', payload.data)
+    const res = yield call(axios, {
+      url: `http://localhost:3000/todos/${payload.data}`,
+      method: 'POST',
+    })
+    yield put(fetchTodosSuccess(res.data))
   } catch (error) {
     console.log(error);
   }
@@ -19,11 +23,11 @@ export function* fetchTodos() {
 
 export function* createTodo(payload) {
   try {
-    const { data : { label, type }} = payload
+    const { data : { label, type, created_by }} = payload
     const res = yield call(axios, {
       url: 'http://localhost:3000/todos',
       method: 'POST',
-      data: { label: label, type: type },
+      data: { label: label, type: type, created_by: created_by },
     })
     yield put(createTodoSuccess(res.data));
   } catch (error) {

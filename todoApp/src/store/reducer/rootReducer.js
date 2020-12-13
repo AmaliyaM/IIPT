@@ -1,12 +1,17 @@
 const initialState = {
   todos: [],
+  user: {
+    name: '',
+    email: '',
+  },
+  isLoggedIn: false,
   loading: false,
 };
 
 export default function usersReducer(state = initialState, action) {
   switch (action.type) {
     case 'FETCH_TODOS': {
-     return {
+      return {
         ...state,
         loading: true,
       }
@@ -20,10 +25,10 @@ export default function usersReducer(state = initialState, action) {
     }
     case 'CREATE_TODO': {
       return {
-         ...state,
-         loading: true,
-       }
-     } 
+        ...state,
+        loading: true,
+      }
+    }
     case 'CREATE_TODO_SUCCESS': {
       return {
         ...state,
@@ -33,10 +38,10 @@ export default function usersReducer(state = initialState, action) {
     }
     case 'DELETE_TODO': {
       return {
-         ...state,
-         loading: true,
-       }
-     } 
+        ...state,
+        loading: true,
+      }
+    }
     case 'DELETE_TODO_SUCCESS': {
       return {
         ...state,
@@ -46,10 +51,10 @@ export default function usersReducer(state = initialState, action) {
     }
     case 'CHECK_TODO': {
       return {
-         ...state,
-         loading: true,
-       }
-     } 
+        ...state,
+        loading: true,
+      }
+    }
     case 'CHECK_TODO_SUCCESS': {
       return {
         ...state,
@@ -59,6 +64,25 @@ export default function usersReducer(state = initialState, action) {
         }),
         loading: false,
       };
+    }
+    case 'USER_SIGN_IN': {
+      const { data: { name, email } } = action
+      return {
+        ...state,
+         user: {
+           name,
+           email,
+         },
+         isLoggedIn: true,
+      }
+    }
+    case 'USER_LOG_OUT': {
+      return {
+        ...state,
+         user: initialState.user,
+         todos: initialState.todos,
+         isLoggedIn: false,
+      }
     }
     default:
       return state;

@@ -11,7 +11,7 @@ var app = express();
 
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost/todos', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost/todos', { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
   .then(() =>  console.log('connection succesful'))
   .catch((err) => console.error(err));
 

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import Header from '../Content/Header';
 import Content from '../Content';
@@ -12,10 +12,12 @@ import './index.css';
 function App() {
   const [currentPage, setCurrentPage] = useState(0)
   const dispatch = useDispatch()
+  const isLoggedIn = useSelector(state => state.isLoggedIn)
+  const user = useSelector(state => state.user)
 
   React.useEffect(() => {
-    dispatch(startFetchTodos())
-  }, [])
+    isLoggedIn && dispatch(startFetchTodos(user.email))
+  }, [isLoggedIn])
 
   return (
     <div className="App">
