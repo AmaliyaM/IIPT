@@ -1,41 +1,53 @@
 import React, { Component } from 'react';
 import { useSelector } from 'react-redux'
-
+import { withTheme } from 'styled-components';
 import Login from './Login'
 import Logout from './Logout'
-import logo from './logo.png';
+import logoDark from './logo_dark.png';
+import logoLight from './logo_light.png';
 
 import './Header.css';
-//import { Route, Switch, Redirect, withRouter } from "react-router-dom"
-//import { Link } from "react-router-dom"
+
+
+import {
+  HeaderContainer,
+  LogoContainer,
+  Image,
+  Links,
+  Button,
+  UserContainer,
+} from './style'
 
 function Header(props) {
-  const { setCurrentPage } = props
+  const { currentPage, setCurrentPage, theme } = props
   const user = useSelector(state => state.user)
-  console.log('user', user)
+  console.log('newwwwwwwwww theme', theme)
   return (
-    <div className="head">
-      <div className="logo"> 
-        <img className="plan" src={logo}/>
-      </div>
-      <div className="links">
-        <button className="button" onClick={() => setCurrentPage(0)}> Список дел </button>
-        <button className="button" onClick={() => setCurrentPage(1)}> Список покупок </button>
-        <button className="button" onClick={() => setCurrentPage(2)}> Полезные статьи</button>
-      </div>
+    <HeaderContainer>
+      <LogoContainer> 
+        <Image src={theme.themeName === 'dark' ? logoDark : logoLight}/>
+      </LogoContainer>
+      <Links>
+        <Button onClick={() => setCurrentPage(0)} isActive={0 === currentPage}> Список дел </Button>
+        <Button onClick={() => setCurrentPage(1)} isActive={1 === currentPage}> Список покупок </Button>
+        <Button onClick={() => setCurrentPage(2)} isActive={2 === currentPage}> Полезные статьи</Button>
+      </Links>
       {user.name ? (
-        <div>
-          {`Welcome ${user.name}`}
+        <UserContainer>
+          Welcome
+          <div>
+            {user.name}
+          </div>
           <Logout />
-        </div>
+        </UserContainer>
       ) : (
-        <div className="login">
+        <UserContainer>
           <Login />
-        </div>
+        </UserContainer>
       )}
-    </div>
+    </HeaderContainer>
   );
 }
 
-export default Header;
+export default withTheme(Header);
 

@@ -1,64 +1,51 @@
 .head {
-    background-color:#3f3e3e; /* Цвет фона */
-    height: 120px;
-    color: #000000;
-    position: fixed; /* Фиксированное положение */
-    width: 100%; /* Ширина слоя */
-    display: flex;
-    z-index: 9999;
-     box-shadow: 0 0 5px rgba(0,0,0,1);
-  }
-
- .logo {
-    background-color: #3f3e3e; /* Цвет фона */
-    height: auto; 
-    width: 25%;
- }
-
- .plan {
-    
-    width: 90%;
-    height: auto;
- }
-
-  .links {
-    background-color:#3f3e3e; /* Цвет фона */
-    height: auto; 
-    width: 60%;
-    align-items: center;
-    justify-content: center;
-  
-    display: flex;
-   
- }
-
- .button {
-    height: 100%; 
-    width: 33.5%;
-    background-color:#3f3e3e; /* Цвет фона */
-    justify-content: space-between;
-    border-bottom-style: none;
-    border-left-style: none;
-    border-right-style: none;
-    border-top-style: none;
-    font-size: 20px;
-    color:#a4cce4;
- }
-
- .button:hover {
-    background-color: #373636;
-    color: #fd9460;
- }
-  
-
-  .login {
-    background-color:#a4cce4; /* Цвет фона */
-    height: auto; 
-    width: 15%;  
-
+  background-color:#3f3e3e;
+  height: 120px;
+  color: #000000;
+  position: fixed; /* Фиксированное положение */
+  width: 100%; /* Ширина слоя */
+  display: flex;
+  z-index: 9999;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 1);
 }
 
+.logo {
+  height: auto;
+  width: 25%;
+}
 
+.plan {
+  width: 90%;
+  height: 100%;
+}
 
+.links {
+  height: auto;
+  width: 60%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
 
-  
+.button {
+  height: 100%;
+  width: 33.5%;
+  background-color: transparent;
+  justify-content: space-between;
+  border-bottom-style: none;
+  border-left-style: none;
+  border-right-style: none;
+  border-top-style: none;
+  font-size: 20px;
+  color: #a4cce4;
+}
+
+.button:hover {
+  background-color: #373636;
+  color: #fd9460;
+}
+
+.login {
+  background-color: #a4cce4;
+  height: auto;
+}
